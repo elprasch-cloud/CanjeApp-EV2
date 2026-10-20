@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla 2 · Control de acceso local (SQLite). No existe botón "Siguiente":
+     la única forma de avanzar es autenticarse. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView style="@style/CanjeApp.Logo" />
+
+        <TextView
+            style="@style/CanjeApp.StepLabel"
+            android:text="@string/step_2" />
+
+        <TextView
+            style="@style/CanjeApp.ScreenTitle"
+            android:text="@string/login_title" />
+
+        <TextView
+            style="@style/CanjeApp.ScreenSubtitle"
+            android:text="@string/login_subtitle" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilUsername"
+                    style="@style/Widget.CanjeApp.TextInput"
+                    android:hint="@string/hint_username">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="username"
+                        android:inputType="textNoSuggestions|textEmailAddress"
+                        android:maxLength="30"
+                        android:textColor="@color/text_primary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
+                    style="@style/Widget.CanjeApp.TextInput"
+                    android:hint="@string/hint_password"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/text_secondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+                        android:inputType="textPassword"
+                        android:maxLength="64"
+                        android:textColor="@color/text_primary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/CanjeApp.Caption"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/security_note" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogin"
+                    style="@style/Widget.CanjeApp.Button.Primary"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/btn_login" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGoRegister"
+                    style="@style/Widget.CanjeApp.Button.Outlined"
+                    android:text="@string/btn_go_register" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrevious"
+                style="@style/Widget.CanjeApp.Button.NavBack"
+                android:text="@string/btn_previous" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

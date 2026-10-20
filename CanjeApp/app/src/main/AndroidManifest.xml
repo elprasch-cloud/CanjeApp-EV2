@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- La app usa Bluetooth clásico, pero puede instalarse aunque el teléfono no lo tenga -->
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false" />
+
+    <!-- Permisos Bluetooth para Android 11 o inferior -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+
+    <!-- Permiso Bluetooth para Android 12+ (API 31+).
+         Principio de mínimo privilegio (ISO 27400): la app solo se conecta a
+         dispositivos ya vinculados, por lo que no necesita BLUETOOTH_SCAN
+         ni permisos de ubicación. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!-- allowBackup=false: la base SQLite con credenciales no se copia a respaldos (ISO 27400) -->
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CanjeApp">
+
+        <!-- Pantalla 1: Título e Integrantes -->
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Pantalla 2: Control de acceso local (SQLite) -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <!-- Registro de usuarios -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+
+        <!-- Pantalla 3: Descripción del proyecto -->
+        <activity
+            android:name=".ProjectActivity"
+            android:exported="false" />
+
+        <!-- Pantalla 4: Monitoreo del sensor (abre la conexión Bluetooth) -->
+        <activity
+            android:name=".SensorActivity"
+            android:exported="false" />
+
+        <!-- Pantalla 5: Control remoto de actuadores -->
+        <activity
+            android:name=".ControlActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

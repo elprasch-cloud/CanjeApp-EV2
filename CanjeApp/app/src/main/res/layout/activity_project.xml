@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla 3 · Descripción del proyecto e información del sensor -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView style="@style/CanjeApp.Logo" />
+
+        <TextView
+            style="@style/CanjeApp.StepLabel"
+            android:text="@string/step_3" />
+
+        <TextView
+            style="@style/CanjeApp.ScreenTitle"
+            android:text="@string/project_title" />
+
+        <TextView
+            style="@style/CanjeApp.ScreenSubtitle"
+            android:text="@string/project_subtitle" />
+
+        <!-- Problemática -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/CanjeApp.CardTitle"
+                    android:text="@string/problem_title"
+                    android:textColor="@color/accent_amber" />
+
+                <TextView
+                    style="@style/CanjeApp.Body"
+                    android:text="@string/problem_description" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Solución -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/CanjeApp.CardTitle"
+                    android:text="@string/solution_title" />
+
+                <TextView
+                    style="@style/CanjeApp.Body"
+                    android:text="@string/project_description" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Sensor -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/CanjeApp.CardTitle"
+                    android:text="@string/sensor_title" />
+
+                <ImageView
+                    android:id="@+id/imgSensor"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginBottom="12dp"
+                    android:contentDescription="@string/sensor_title"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/sensor_hcsr04" />
+
+                <TextView
+                    style="@style/CanjeApp.Body"
+                    android:text="@string/sensor_description" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Actuadores -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/CanjeApp.CardTitle"
+                    android:text="@string/actuators_title"
+                    android:textColor="@color/accent_purple" />
+
+                <TextView
+                    style="@style/CanjeApp.Body"
+                    android:text="@string/actuators_description" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Comunicación -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/CanjeApp.CardTitle"
+                    android:text="@string/tech_title"
+                    android:textColor="@color/primary" />
+
+                <TextView
+                    style="@style/CanjeApp.Body"
+                    android:text="@string/tech_description" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrevious"
+                style="@style/Widget.CanjeApp.Button.NavBack"
+                android:text="@string/btn_logout" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                style="@style/Widget.CanjeApp.Button.NavNext"
+                android:text="@string/btn_next" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

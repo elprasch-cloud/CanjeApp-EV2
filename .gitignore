@@ -1,0 +1,28 @@
+# Gradle / Android Studio
+.gradle/
+.kotlin/
+build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Configuración local (contiene la ruta del SDK de cada equipo)
+local.properties
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+
+# Firmas y llaves (nunca se suben al repositorio)
+*.jks
+*.keystore
+keystore.properties
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

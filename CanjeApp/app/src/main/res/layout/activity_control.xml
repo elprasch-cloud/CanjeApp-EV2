@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla 5 · Control remoto de los actuadores del Arduino por Bluetooth -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView style="@style/CanjeApp.Logo" />
+
+        <TextView
+            style="@style/CanjeApp.StepLabel"
+            android:text="@string/step_5" />
+
+        <TextView
+            style="@style/CanjeApp.ScreenTitle"
+            android:text="@string/control_title" />
+
+        <TextView
+            style="@style/CanjeApp.ScreenSubtitle"
+            android:layout_marginBottom="16dp"
+            android:text="@string/control_subtitle" />
+
+        <!-- Estado de conexión y última respuesta del Arduino -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvBtStatusControl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bt_disconnected"
+                    android:textColor="@color/error"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLastAck"
+                    style="@style/CanjeApp.Caption"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="monospace"
+                    android:text="@string/last_ack_none" />
+
+                <TextView
+                    android:id="@+id/tvBtWarning"
+                    style="@style/CanjeApp.Caption"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/bt_not_connected_warning"
+                    android:textColor="@color/accent_amber" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- LED de validación -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CanjeApp.CardTitle"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/label_led"
+                        android:textColor="@color/primary" />
+
+                    <TextView
+                        style="@style/CanjeApp.Caption"
+                        android:text="@string/label_led_desc" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchLed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tvLedStatus"
+                        style="@style/CanjeApp.Caption"
+                        android:text="@string/status_off"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Buzzer de aviso -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CanjeApp.CardTitle"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/label_alarm" />
+
+                    <TextView
+                        style="@style/CanjeApp.Caption"
+                        android:text="@string/label_alarm_desc" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchAlarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tvAlarmStatus"
+                        style="@style/CanjeApp.Caption"
+                        android:text="@string/status_off"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Compuerta dispensadora (servo) -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/CanjeApp.CardTitle"
+                    android:layout_marginBottom="2dp"
+                    android:text="@string/label_motor"
+                    android:textColor="@color/accent_purple" />
+
+                <TextView
+                    style="@style/CanjeApp.Caption"
+                    android:text="@string/label_motor_desc" />
+
+                <TextView
+                    android:id="@+id/tvMotorStatus"
+                    style="@style/CanjeApp.MetricValue"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/motor_closed"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUp"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_up"
+                        android:textColor="@color/on_primary"
+                        app:backgroundTint="@color/secondary_variant" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDown"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_down"
+                        android:textColor="@color/on_primary"
+                        app:backgroundTint="@color/primary_variant" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrevious"
+                style="@style/Widget.CanjeApp.Button.NavBack"
+                android:text="@string/btn_previous" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                style="@style/Widget.CanjeApp.Button.NavNext"
+                android:text="@string/btn_logout"
+                android:textColor="@color/error" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

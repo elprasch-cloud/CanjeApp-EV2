@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla 4 · Monitoreo: datos del HC-SR04 recibidos por Bluetooth,
+     código de canje de un solo uso e historial guardado en SQLite -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView style="@style/CanjeApp.Logo" />
+
+        <TextView
+            style="@style/CanjeApp.StepLabel"
+            android:text="@string/step_4" />
+
+        <TextView
+            style="@style/CanjeApp.ScreenTitle"
+            android:text="@string/sensor_info_title" />
+
+        <TextView
+            android:id="@+id/tvSessionUser"
+            style="@style/CanjeApp.ScreenSubtitle"
+            android:layout_marginBottom="16dp"
+            android:text="@string/sensor_info_subtitle" />
+
+        <!-- Estado de la conexión Bluetooth -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvBtStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/bt_disconnected"
+                    android:textColor="@color/error"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConnectBt"
+                    style="@style/Widget.CanjeApp.Button.Outlined"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_connect_bt" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Métricas 2x2 -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:useDefaultMargins="false">
+
+            <!-- Distancia -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.CanjeApp.Card"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:background="@color/primary" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/CanjeApp.MetricLabel"
+                            android:text="@string/label_distance" />
+
+                        <TextView
+                            android:id="@+id/tvDistance"
+                            style="@style/CanjeApp.MetricValue"
+                            android:text="@string/value_default_distance" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Presencia (umbral de canje) -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.CanjeApp.Card"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:background="@color/accent_amber" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/CanjeApp.MetricLabel"
+                            android:text="@string/label_presence" />
+
+                        <TextView
+                            android:id="@+id/tvPresence"
+                            style="@style/CanjeApp.MetricValue"
+                            android:text="@string/value_default" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Lecturas guardadas en SQLite -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.CanjeApp.Card"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:background="@color/secondary" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/CanjeApp.MetricLabel"
+                            android:text="@string/label_readings" />
+
+                        <TextView
+                            android:id="@+id/tvReadings"
+                            style="@style/CanjeApp.MetricValue"
+                            android:text="@string/value_default" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Puntos del usuario -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.CanjeApp.Card"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:background="@color/accent_purple" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/CanjeApp.MetricLabel"
+                            android:text="@string/label_points" />
+
+                        <TextView
+                            android:id="@+id/tvPoints"
+                            style="@style/CanjeApp.MetricValue"
+                            android:text="@string/value_default" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </GridLayout>
+
+        <!-- Código de canje de un solo uso -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.CanjeApp.Card"
+            app:strokeColor="@color/secondary"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/CanjeApp.CardTitle"
+                    android:text="@string/redeem_title" />
+
+                <TextView
+                    android:id="@+id/tvRedeemCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="@string/value_default"
+                    android:textColor="@color/accent_green"
+                    android:textIsSelectable="true"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvRedeemInfo"
+                    style="@style/CanjeApp.Caption"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Historial consultado desde SQLite -->
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/CanjeApp.CardTitle"
+                    android:text="@string/history_title"
+                    android:textColor="@color/primary" />
+
+                <TextView
+                    android:id="@+id/tvHistory"
+                    style="@style/CanjeApp.Body"
+                    android:fontFamily="monospace"
+                    android:text="@string/history_empty"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrevious"
+                style="@style/Widget.CanjeApp.Button.NavBack"
+                android:text="@string/btn_previous" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                style="@style/Widget.CanjeApp.Button.NavNext"
+                android:text="@string/btn_next" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

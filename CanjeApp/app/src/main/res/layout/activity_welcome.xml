@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla 1 · Inicio: título del proyecto e integrantes del grupo de trabajo -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            style="@style/CanjeApp.Logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            style="@style/CanjeApp.StepLabel"
+            android:text="@string/step_1" />
+
+        <TextView
+            style="@style/CanjeApp.ScreenTitle"
+            android:text="@string/welcome_title"
+            android:textSize="28sp" />
+
+        <TextView
+            style="@style/CanjeApp.ScreenSubtitle"
+            android:text="@string/welcome_subtitle"
+            android:textColor="@color/secondary" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.CanjeApp.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    style="@style/CanjeApp.CardTitle"
+                    android:text="@string/welcome_team" />
+
+                <TextView
+                    style="@style/CanjeApp.Body"
+                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/welcome_member1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    style="@style/CanjeApp.Body"
+                    android:layout_width="wrap_content"
+                    android:text="@string/welcome_member2"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/CanjeApp.Caption"
+            android:layout_marginBottom="4dp"
+            android:text="@string/welcome_teacher"
+            android:textSize="14sp" />
+
+        <TextView
+            style="@style/CanjeApp.Caption"
+            android:layout_marginBottom="4dp"
+            android:text="@string/welcome_section"
+            android:textSize="14sp" />
+
+        <TextView
+            style="@style/CanjeApp.Caption"
+            android:layout_marginBottom="32dp"
+            android:text="@string/welcome_institution"
+            android:textSize="14sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            style="@style/Widget.CanjeApp.Button.Primary"
+            android:text="@string/btn_start" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IoT Canje App</string>
+
+    <!-- Navegación común -->
+    <string name="btn_next">Siguiente →</string>
+    <string name="btn_previous">← Anterior</string>
+    <string name="btn_start">Comenzar →</string>
+    <string name="btn_logout">Cerrar sesión</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="step_1">PASO 1 DE 5 · INICIO</string>
+    <string name="step_2">PASO 2 DE 5 · ACCESO</string>
+    <string name="step_2_register">PASO 2 DE 5 · REGISTRO</string>
+    <string name="step_3">PASO 3 DE 5 · PROYECTO</string>
+    <string name="step_4">PASO 4 DE 5 · MONITOREO</string>
+    <string name="step_5">PASO 5 DE 5 · CONTROL</string>
+    <string name="logout_title">Cerrar sesión</string>
+    <string name="logout_message">¿Deseas cerrar la sesión? Se cortará la conexión Bluetooth.</string>
+    <string name="session_user">Sesión: %1$s</string>
+
+    <!-- Pantalla 1: Inicio (título del proyecto e integrantes) -->
+    <string name="welcome_title">Sistema de Canje de Puntos IoT</string>
+    <string name="welcome_subtitle">Aplicaciones Móviles para IoT — TI3042</string>
+    <string name="welcome_team">Integrantes del grupo de trabajo</string>
+    <string name="welcome_member1">Lindsay Soto</string>
+    <string name="welcome_member2">Matías Vargas</string>
+    <string name="welcome_teacher">Docente: Igor Cáceres Padilla</string>
+    <!-- VERIFICAR: la pauta indica "Ingeniería en Ciberseguridad" y otra sección.
+         Dejar aquí exactamente la carrera y sección que aparecen en tu inscripción. -->
+    <string name="welcome_section">Sección: D-IEI-N4-P2-C2</string>
+    <string name="welcome_institution">INACAP — Ingeniería en Informática</string>
+
+    <!-- Pantalla 2: Login / Registro -->
+    <string name="login_title">Control de Acceso</string>
+    <string name="login_subtitle">Ingresa con tu usuario y contraseña</string>
+    <string name="hint_username">Usuario (nombre.apellido)</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_confirm_password">Confirmar contraseña</string>
+    <string name="helper_username">Formato nombre.apellido, en minúsculas. Ej.: matias.vargas</string>
+    <string name="helper_password">Mín. 8 caracteres: mayúscula, minúscula, número y símbolo</string>
+    <string name="btn_login">Iniciar sesión</string>
+    <string name="btn_register">Crear cuenta</string>
+    <string name="btn_go_register">¿No tienes cuenta? Regístrate</string>
+    <string name="btn_back_login">¿Ya tienes cuenta? Inicia sesión</string>
+    <string name="login_success">¡Bienvenido, %1$s!</string>
+    <string name="login_failed">Usuario o contraseña incorrectos</string>
+    <string name="login_failed_attempts">Usuario o contraseña incorrectos. Intentos restantes: %1$d</string>
+    <string name="login_locked">Cuenta bloqueada por intentos fallidos. Intenta en %1$d s</string>
+    <string name="login_checking">Verificando…</string>
+    <string name="register_title">Crear Cuenta</string>
+    <string name="register_subtitle">Registra tus credenciales locales</string>
+    <string name="register_success">Usuario registrado. Ya puedes iniciar sesión.</string>
+    <string name="register_failed">El usuario ya existe</string>
+    <string name="username_invalid">Usa el formato nombre.apellido (minúsculas, 5–30 caracteres)</string>
+    <string name="fields_empty">Completa todos los campos</string>
+    <string name="passwords_mismatch">Las contraseñas no coinciden</string>
+    <string name="security_note">🔒 Contraseña guardada como hash PBKDF2-SHA256 con sal · bloqueo tras 3 intentos (ISO/IEC 27400)</string>
+
+    <!-- Pantalla 3: Descripción del proyecto -->
+    <string name="project_title">Sobre el Proyecto</string>
+    <string name="project_subtitle">Problemática, solución y hardware</string>
+    <string name="problem_title">Problemática</string>
+    <string name="problem_description">No existen métodos rápidos y confiables para entregar códigos promocionales presenciales vinculados a un sistema de canje de puntos en una app.</string>
+    <string name="solution_title">Solución propuesta</string>
+    <string name="project_description">Un punto de canje basado en Arduino detecta, con un sensor ultrasónico, cuando el usuario acerca su teléfono a menos de 30 cm. La app recibe la distancia por Bluetooth, genera un código de un solo uso, suma puntos al usuario y lo guarda en SQLite.\n\nDesde la app también se controlan los actuadores del punto de canje: LED de validación, buzzer de aviso y compuerta dispensadora (servomotor).</string>
+    <string name="sensor_title">Sensor HC-SR04 (ultrasónico)</string>
+    <string name="sensor_description">Mide distancia sin contacto emitiendo un pulso de 40 kHz y midiendo el tiempo del eco.\n\n• Modelo: HC-SR04\n• Rango: 2–400 cm (precisión ≈ 3 mm)\n• Ángulo efectivo: 15°\n• Alimentación: 5 V DC, 15 mA\n• Pines: VCC, TRIG (D6), ECHO (D5), GND\n• Uso en el proyecto: detectar presencia del usuario a ≤ 30 cm</string>
+    <string name="actuators_title">Actuadores del punto de canje</string>
+    <string name="actuators_description">• LED de validación (D13)\n• Buzzer de aviso (D8)\n• Servomotor SG90 – compuerta dispensadora (D9)</string>
+    <string name="tech_title">Tecnología de comunicación</string>
+    <string name="tech_description">Bluetooth Clásico (SPP) entre la app Android y el módulo HC-05/HC-06 conectado al Arduino Uno.\n\n• Protocolo: RFCOMM (Serial Port Profile)\n• Velocidad: 9600 baud\n• Alcance: ~10 m\n• Seguridad: vinculación con PIN, solo dispositivos vinculados</string>
+
+    <!-- Pantalla 4: Monitoreo del sensor -->
+    <string name="sensor_info_title">Monitoreo del Sensor</string>
+    <string name="sensor_info_subtitle">Lecturas en tiempo real del HC-SR04</string>
+    <string name="label_distance">Distancia</string>
+    <string name="label_presence">Presencia</string>
+    <string name="label_readings">Lecturas guardadas</string>
+    <string name="label_points">Mis puntos</string>
+    <string name="value_default_distance">-- cm</string>
+    <string name="value_default">--</string>
+    <string name="value_distance">%1$d cm</string>
+    <string name="value_no_echo">Sin eco</string>
+    <string name="presence_in">EN RANGO</string>
+    <string name="presence_out">FUERA</string>
+    <string name="redeem_title">Código de canje</string>
+    <string name="redeem_waiting">Acerca tu teléfono a menos de %1$d cm del punto de canje</string>
+    <string name="redeem_generated">Código de un solo uso · +%1$d puntos</string>
+    <string name="history_title">Últimos canjes (SQLite)</string>
+    <string name="history_empty">Aún no hay canjes registrados</string>
+    <string name="bt_connected">● Conectado a %1$s</string>
+    <string name="bt_connecting">◌ Conectando…</string>
+    <string name="bt_disconnected">○ Desconectado</string>
+    <string name="btn_connect_bt">Conectar</string>
+    <string name="btn_disconnect_bt">Desconectar</string>
+    <string name="bt_select_device">Selecciona el módulo HC-05/HC-06</string>
+    <string name="bt_no_devices">No hay dispositivos vinculados. Vincula el HC-05/06 en Ajustes &gt; Bluetooth (PIN 1234).</string>
+    <string name="bt_permission_denied">Se requiere el permiso de Bluetooth para conectar</string>
+    <string name="bt_disabled">Debes encender el Bluetooth para conectar</string>
+    <string name="bt_not_supported">Este dispositivo no tiene Bluetooth</string>
+
+    <!-- Pantalla 5: Control remoto del Arduino -->
+    <string name="control_title">Sistema de Control</string>
+    <string name="control_subtitle">Control remoto de los actuadores del punto de canje</string>
+    <string name="label_led">LED de validación</string>
+    <string name="label_led_desc">Indica al usuario que su canje fue aceptado</string>
+    <string name="label_alarm">Buzzer de aviso</string>
+    <string name="label_alarm_desc">Alerta sonora del punto de canje</string>
+    <string name="label_motor">Compuerta dispensadora</string>
+    <string name="label_motor_desc">Servomotor que libera el cupón o premio</string>
+    <string name="btn_up">▲ ABRIR</string>
+    <string name="btn_down">▼ CERRAR</string>
+    <string name="status_on">ON</string>
+    <string name="status_off">OFF</string>
+    <string name="motor_open">ABIERTA</string>
+    <string name="motor_closed">CERRADA</string>
+    <string name="last_ack">Respuesta del Arduino: %1$s</string>
+    <string name="last_ack_none">Respuesta del Arduino: —</string>
+    <string name="bt_not_connected_warning">Sin conexión Bluetooth: conéctate en la pantalla de Monitoreo (Paso 4)</string>
+</resources>
